@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LogginpageActivity"
+            android:name=".activity.LogginpageActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,9 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".ForgetpasswordpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".MainpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.RegisterpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.ForgetpasswordpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.MainpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

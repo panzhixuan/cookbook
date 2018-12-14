@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.administrator.cookbook.view.LogginpageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:id="@+id/logginpage">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -97,4 +98,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</com.example.administrator.cookbook.view.LogginpageView>

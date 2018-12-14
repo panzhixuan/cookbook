@@ -1,4 +1,4 @@
-package com.example.administrator.cookbook;
+package com.example.administrator.cookbook.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,10 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.administrator.cookbook.R;
+import com.example.administrator.cookbook.controller.MainpageController;
+import com.example.administrator.cookbook.controller.RegisterpageController;
+import com.example.administrator.cookbook.view.MainpageView;
+import com.example.administrator.cookbook.view.RegisterpageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookFragment extends Fragment {
+public class MainpageFragment extends Fragment implements MainpageControllerListener{
     private MainpageActivity mainpageActivity;
     private boolean actIsAlive=true;
     private List<ImageView> viewPagerData;
@@ -47,6 +53,8 @@ public class BookFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.mainpage, null);
+        MainpageController Controller = new MainpageController((MainpageView) view.findViewById(R.id.mainpage), this);
+        ((MainpageView) view.findViewById(R.id.mainpage)).setListeners(Controller);
         viewpager=(ViewPager)view.findViewById(R.id.viewpager);
         initData();
         initViewpager();
@@ -66,10 +74,10 @@ public class BookFragment extends Fragment {
         actIsAlive=false;
     }
 
-    public static BookFragment newInstance(String name) {
+    public static MainpageFragment newInstance(String name) {
         Bundle args = new Bundle();
         args.putString("name", name);
-        BookFragment fragment = new BookFragment();
+        MainpageFragment fragment = new MainpageFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -209,6 +217,10 @@ public class BookFragment extends Fragment {
                 }
             }
         }.start();
+    }
+    @Override
+    public void test() {
+        mainpageActivity.finish();
     }
 }
 

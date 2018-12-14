@@ -1,36 +1,21 @@
-package com.example.administrator.cookbook;
+package com.example.administrator.cookbook.activity;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.Inflater;
+import com.example.administrator.cookbook.R;
 
 public class MainpageActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener{
     BottomNavigationBar mBottomNavigationBar;
     FrameLayout mFrameLayout;
-    private BookFragment mBookFragment;
-    private LikeFragment mLikeFragment;
+    private MainpageFragment mBookFragment;
+    private TypeFragment mLikeFragment;
     private UserFragment mUserFragment;
 
     @Override
@@ -71,7 +56,7 @@ public class MainpageActivity extends AppCompatActivity implements BottomNavigat
     private void setDefaultFragment() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        mBookFragment = BookFragment.newInstance("1");
+        mBookFragment = MainpageFragment.newInstance("1");
         transaction.replace(R.id.fragment_container, mBookFragment);
         transaction.commit();
     }
@@ -83,13 +68,13 @@ public class MainpageActivity extends AppCompatActivity implements BottomNavigat
         switch (position) {
             case 0:
                 if (mBookFragment == null) {
-                    mBookFragment = BookFragment.newInstance("1");
+                    mBookFragment = MainpageFragment.newInstance("1");
                 }
                 transaction.replace(R.id.fragment_container, mBookFragment);
                 break;
             case 1:
                 if (mLikeFragment == null) {
-                    mLikeFragment = LikeFragment.newInstance("2");
+                    mLikeFragment = TypeFragment.newInstance("2");
                 }
                 transaction.replace(R.id.fragment_container, mLikeFragment);
                 break;

@@ -1,4 +1,4 @@
-package com.example.administrator.cookbook;
+package com.example.administrator.cookbook.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.administrator.cookbook.R;
 
 public class UserFragment extends Fragment {
 

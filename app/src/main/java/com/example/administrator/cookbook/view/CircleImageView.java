@@ -1,4 +1,4 @@
-package com.example.hasee.familycookbook;
+package com.example.administrator.cookbook.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
