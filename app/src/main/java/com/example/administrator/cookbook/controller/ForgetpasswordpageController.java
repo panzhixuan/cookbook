@@ -4,17 +4,14 @@ import android.view.View;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.activity.ForgetpasswordpageControllerListener;
-import com.example.administrator.cookbook.activity.LogginpageControllerListener;
-import com.example.administrator.cookbook.view.ForgetpasswordpageView;
-import com.example.administrator.cookbook.view.LogginpageView;
 
 public class ForgetpasswordpageController implements View.OnClickListener{
-    private ForgetpasswordpageView View;
+    private View View;
     private ForgetpasswordpageControllerListener listener;
 
 
 
-    public ForgetpasswordpageController(ForgetpasswordpageView View, ForgetpasswordpageControllerListener listener) {
+    public ForgetpasswordpageController(View View, ForgetpasswordpageControllerListener listener) {
 
         this.View = View;
 

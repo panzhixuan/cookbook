@@ -4,17 +4,14 @@ import android.view.View;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.activity.MainpageControllerListener;
-import com.example.administrator.cookbook.activity.RegisterpageControllerListener;
-import com.example.administrator.cookbook.view.MainpageView;
-import com.example.administrator.cookbook.view.RegisterpageView;
 
 public class MainpageController implements View.OnClickListener {
-    private MainpageView View;
+    private View View;
     private MainpageControllerListener listener;
 
 
 
-    public MainpageController(MainpageView View, MainpageControllerListener listener) {
+    public MainpageController(View View, MainpageControllerListener listener) {
 
         this.View = View;
 
@@ -25,7 +22,31 @@ public class MainpageController implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.type1:
-                listener.test();
+                listener.toTypeActivity("川菜");
+                break;
+            case R.id.type2:
+                listener.toTypeActivity("淮扬");
+                break;
+            case R.id.type3:
+                listener.toTypeActivity("徽菜");
+                break;
+            case R.id.type4:
+                listener.toTypeActivity("鲁菜");
+                break;
+            case R.id.type5:
+                listener.toTypeActivity("闽菜");
+                break;
+            case R.id.type6:
+                listener.toTypeActivity("粤菜");
+                break;
+            case R.id.type7:
+                listener.toTypeActivity("湘菜");
+                break;
+            case R.id.type8:
+                listener.toTypeActivity("浙菜");
+                break;
+            case R.id.searchconfirm:
+                listener.toSearchActivity();
                 break;
         }
     }

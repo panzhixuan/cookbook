@@ -1,6 +1,7 @@
 package com.example.administrator.cookbook.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,9 +17,6 @@ import android.widget.ImageView;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.controller.MainpageController;
-import com.example.administrator.cookbook.controller.RegisterpageController;
-import com.example.administrator.cookbook.view.MainpageView;
-import com.example.administrator.cookbook.view.RegisterpageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +29,7 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
     private ViewPager viewpager;
     private Handler handler;
     private int currentPosition;
+    private View view;
 
     //onAttach(),当fragment被绑定到activity时被调用(Activity会被传入.).
     @Override
@@ -52,14 +51,25 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.mainpage, null);
-        MainpageController Controller = new MainpageController((MainpageView) view.findViewById(R.id.mainpage), this);
-        ((MainpageView) view.findViewById(R.id.mainpage)).setListeners(Controller);
+        view = inflater.inflate(R.layout.mainpage, null);
+        MainpageController Controller = new MainpageController(view.findViewById(R.id.mainpage), this);
+        setListeners(Controller);
         viewpager=(ViewPager)view.findViewById(R.id.viewpager);
         initData();
         initViewpager();
         initHandler();
         return view;
+    }
+    public void setListeners(View.OnClickListener onClickListener){
+        view.findViewById(R.id.type1).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type2).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type3).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type4).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type5).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type6).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type7).setOnClickListener(onClickListener);
+        view.findViewById(R.id.type8).setOnClickListener(onClickListener);
+        view.findViewById(R.id.searchconfirm).setOnClickListener(onClickListener);
     }
     @Override
     public void onResume() {
@@ -209,7 +219,7 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
                 super.run();
                 while (actIsAlive) {
                     try {
-                        sleep(3000);
+                        sleep(5000);
                         handler.sendEmptyMessage(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -219,8 +229,17 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
         }.start();
     }
     @Override
-    public void test() {
-        mainpageActivity.finish();
+    public void toTypeActivity(String typename) {
+        Intent intent=null;
+        intent=new Intent(mainpageActivity,TypepageActivity.class);
+        intent.putExtra("typename",typename);
+        startActivity(intent);
+    }
+    @Override
+    public void toSearchActivity() {
+        Intent intent=null;
+        intent=new Intent(mainpageActivity,SearchpageActivity.class);
+        startActivity(intent);
     }
 }
 

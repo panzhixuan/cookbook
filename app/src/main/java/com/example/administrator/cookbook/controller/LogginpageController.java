@@ -4,16 +4,15 @@ import android.view.View;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.activity.LogginpageControllerListener;
-import com.example.administrator.cookbook.view.LogginpageView;
 
 public class LogginpageController implements View.OnClickListener {
 
-    private LogginpageView loginView;
+    private View loginView;
     private LogginpageControllerListener listener;
 
 
 
-    public LogginpageController(LogginpageView loginView, LogginpageControllerListener listener) {
+    public LogginpageController(View loginView, LogginpageControllerListener listener) {
 
         this.loginView = loginView;
 

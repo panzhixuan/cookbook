@@ -33,6 +33,11 @@
         <activity android:name=".activity.RegisterpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.ForgetpasswordpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.MainpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.TypepageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.SearchpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.CookbookdetailpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.CreatecookbookpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.EditcookbookpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

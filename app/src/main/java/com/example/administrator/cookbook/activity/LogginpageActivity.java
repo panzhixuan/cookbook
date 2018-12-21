@@ -5,23 +5,25 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.controller.LogginpageController;
-import com.example.administrator.cookbook.view.LogginpageView;
 
 public class LogginpageActivity extends AppCompatActivity implements LogginpageControllerListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logginpage);
-        LogginpageController loginController = new LogginpageController((LogginpageView) this.findViewById(R.id.logginpage), this);
-        ((LogginpageView) this.findViewById(R.id.logginpage)).setListeners(loginController);
+        LogginpageController loginController = new LogginpageController(this.findViewById(R.id.logginpage), this);
+        setListeners(loginController);
         EditText password=(EditText) findViewById(R.id.password);
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+    }
+    public void setListeners(View.OnClickListener onClickListener){
+        findViewById(R.id.confirm).setOnClickListener(onClickListener);
+        findViewById(R.id.forgetpassword).setOnClickListener(onClickListener);
+        findViewById(R.id.register).setOnClickListener(onClickListener);
     }
     @Override
     public void onLoginSuccess() {

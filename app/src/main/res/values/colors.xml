@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF9800</color>
     <color name="transparent70">#B3ffffff</color>
+    <color name="transparent30">#4Dffffff</color>
     <color name="white">#ffffff</color>
     <color name="nav_gray">#AAAAAA</color>
     <color name="orange">#FF9800</color>

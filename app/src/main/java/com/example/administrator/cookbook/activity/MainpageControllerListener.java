@@ -1,5 +1,6 @@
 package com.example.administrator.cookbook.activity;
 
 public interface MainpageControllerListener {
-    public void test();
+    public void toTypeActivity(String typename);
+    public void toSearchActivity();
 }
