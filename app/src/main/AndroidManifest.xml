@@ -38,6 +38,10 @@
         <activity android:name=".activity.CookbookdetailpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.CreatecookbookpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.EditcookbookpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.MycookbookActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.CollectpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.BrowserpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.TypesearchpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

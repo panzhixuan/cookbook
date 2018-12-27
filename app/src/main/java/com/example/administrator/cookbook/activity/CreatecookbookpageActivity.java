@@ -6,14 +6,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.controller.CreatecookbookpageController;
-import com.example.administrator.cookbook.controller.ForgetpasswordpageController;
-import com.example.administrator.cookbook.model.cookbook;
 
 public class CreatecookbookpageActivity extends AppCompatActivity implements CreatecookbookpageControllerListener{
     private LinearLayout materialList;
@@ -25,15 +22,15 @@ public class CreatecookbookpageActivity extends AppCompatActivity implements Cre
         CreatecookbookpageController Controller = new CreatecookbookpageController(this.findViewById(R.id.createcookbookpage), this);
         setListeners(Controller);
         Spinner caishispinner = (Spinner) findViewById(R.id.caishi);
-        String[] caishitype = {"a", "b"};
+        String[] caishitype = {"清淡", "辣","酸"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, caishitype);
         caishispinner.setAdapter(adapter);
         Spinner caixispinner = (Spinner) findViewById(R.id.caixi);
-        String[] caixitype = {"a", "b"};
+        String[] caixitype = {"川菜", "淮扬菜","徽菜","鲁菜","闽菜","粤菜","湘菜","浙菜"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, caixitype);
         caixispinner.setAdapter(adapter1);
         Spinner changhespinner = (Spinner) findViewById(R.id.changhe);
-        String[] changhetype = {"a", "b"};
+        String[] changhetype = {"家", "饭店","快餐厅"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, changhetype);
         changhespinner.setAdapter(adapter2);
         materialList = (LinearLayout) findViewById(R.id.material_list);

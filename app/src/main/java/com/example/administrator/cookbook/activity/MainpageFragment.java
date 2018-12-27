@@ -70,6 +70,10 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
         view.findViewById(R.id.type7).setOnClickListener(onClickListener);
         view.findViewById(R.id.type8).setOnClickListener(onClickListener);
         view.findViewById(R.id.searchconfirm).setOnClickListener(onClickListener);
+        view.findViewById(R.id.recdish1).setOnClickListener(onClickListener);
+        view.findViewById(R.id.recdish2).setOnClickListener(onClickListener);
+        view.findViewById(R.id.recdish3).setOnClickListener(onClickListener);
+        view.findViewById(R.id.recdish4).setOnClickListener(onClickListener);
     }
     @Override
     public void onResume() {
@@ -239,6 +243,12 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
     public void toSearchActivity() {
         Intent intent=null;
         intent=new Intent(mainpageActivity,SearchpageActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void toCookbookdetail(){
+        Intent intent=null;
+        intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
         startActivity(intent);
     }
 }

@@ -48,6 +48,18 @@ public class MainpageController implements View.OnClickListener {
             case R.id.searchconfirm:
                 listener.toSearchActivity();
                 break;
+            case R.id.recdish1:
+                listener.toCookbookdetail();
+                break;
+            case R.id.recdish2:
+                listener.toCookbookdetail();
+                break;
+            case R.id.recdish3:
+                listener.toCookbookdetail();
+                break;
+            case R.id.recdish4:
+                listener.toCookbookdetail();
+                break;
         }
     }
 }

@@ -23,15 +23,15 @@ public class EditcookbookpageActivity extends AppCompatActivity implements Editc
         EditcookbookpageController Controller = new EditcookbookpageController(this.findViewById(R.id.editcookbookpage), this);
         setListeners(Controller);
         Spinner caishispinner = (Spinner) findViewById(R.id.caishi);
-        String[] caishitype = {"a", "b"};
+        String[] caishitype = {"清淡", "辣","酸"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, caishitype);
         caishispinner.setAdapter(adapter);
         Spinner caixispinner = (Spinner) findViewById(R.id.caixi);
-        String[] caixitype = {"a", "b"};
+        String[] caixitype = {"川菜", "淮扬菜","徽菜","鲁菜","闽菜","粤菜","湘菜","浙菜"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, caixitype);
         caixispinner.setAdapter(adapter1);
         Spinner changhespinner = (Spinner) findViewById(R.id.changhe);
-        String[] changhetype = {"a", "b"};
+        String[] changhetype = {"家", "饭店","快餐厅"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, changhetype);
         changhespinner.setAdapter(adapter2);
         materialList = (LinearLayout) findViewById(R.id.material_list);

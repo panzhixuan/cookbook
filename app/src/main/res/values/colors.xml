@@ -8,4 +8,7 @@
     <color name="white">#ffffff</color>
     <color name="nav_gray">#AAAAAA</color>
     <color name="orange">#FF9800</color>
+    <color name="red">#ef3b3b</color>
+    <color name="green">#7be413</color>
+    <color name="halfOrigin">#e2e231</color>
 </resources>

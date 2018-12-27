@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.controller.TypelistController;
-import com.example.administrator.cookbook.model.cookbook;
+import com.example.administrator.cookbook.model.Cookbook;
 
 import java.util.List;
 
@@ -17,14 +17,14 @@ public class TypelistAdapter extends ArrayAdapter implements TypelistControllerL
     private Context context;
     private View view;
 
-    public TypelistAdapter(Context context, int textViewResourceId, List<cookbook> objects) {
+    public TypelistAdapter(Context context, int textViewResourceId, List<Cookbook> objects) {
         super(context, textViewResourceId,objects);
         this.context=context;
         resourceId = textViewResourceId;
     }
     @Override
-    public View getView(int position, final View convertView, final ViewGroup parent) {
-        cookbook cookbook = (cookbook) getItem(position);
+    public View getView(int position, final View convertViw, final ViewGroup parent) {
+        Cookbook cookbook = (Cookbook) getItem(position);
         view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         TypelistController Controller = new TypelistController(view.findViewById(R.id.typelist), this);
         setListeners(Controller);
