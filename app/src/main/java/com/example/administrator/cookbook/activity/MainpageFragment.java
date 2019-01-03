@@ -13,13 +13,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.controller.MainpageController;
+import com.example.administrator.cookbook.model.Cookbook;
+import com.example.administrator.cookbook.view.GetImageByUrl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class MainpageFragment extends Fragment implements MainpageControllerListener{
     private MainpageActivity mainpageActivity;
@@ -30,6 +44,8 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
     private Handler handler;
     private int currentPosition;
     private View view;
+    private List<Cookbook> cookbookList = new ArrayList<Cookbook>();
+    private List<String> mStrings = new ArrayList<String>();
 
     //onAttach(),当fragment被绑定到activity时被调用(Activity会被传入.).
     @Override
@@ -58,6 +74,12 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
         initData();
         initViewpager();
         initHandler();
+        loadData();
+        loadmainData();
+        final AutoCompleteTextView search=(AutoCompleteTextView)view.findViewById(R.id.search);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(mainpageActivity,android.R.layout.simple_dropdown_item_1line,mStrings);
+        search.setAdapter(adapter);
+        ImageView sync=(ImageView)view.findViewById(R.id.sync);
         return view;
     }
     public void setListeners(View.OnClickListener onClickListener){
@@ -70,16 +92,19 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
         view.findViewById(R.id.type7).setOnClickListener(onClickListener);
         view.findViewById(R.id.type8).setOnClickListener(onClickListener);
         view.findViewById(R.id.searchconfirm).setOnClickListener(onClickListener);
-        view.findViewById(R.id.recdish1).setOnClickListener(onClickListener);
-        view.findViewById(R.id.recdish2).setOnClickListener(onClickListener);
-        view.findViewById(R.id.recdish3).setOnClickListener(onClickListener);
-        view.findViewById(R.id.recdish4).setOnClickListener(onClickListener);
+        view.findViewById(R.id.sync).setOnClickListener(onClickListener);
+//        view.findViewById(R.id.recdish1).setOnClickListener(onClickListener);
+//        view.findViewById(R.id.recdish2).setOnClickListener(onClickListener);
+//        view.findViewById(R.id.recdish3).setOnClickListener(onClickListener);
+//        view.findViewById(R.id.recdish4).setOnClickListener(onClickListener);
     }
     @Override
     public void onResume() {
         super.onResume();
         actIsAlive=true;
         autoViewPager();
+        loadmainData();
+        loadData();
     }
 
     @Override
@@ -241,15 +266,154 @@ public class MainpageFragment extends Fragment implements MainpageControllerList
     }
     @Override
     public void toSearchActivity() {
-        Intent intent=null;
-        intent=new Intent(mainpageActivity,SearchpageActivity.class);
-        startActivity(intent);
+        EditText search=(EditText)view.findViewById(R.id.search);
+        if(search.getText().toString().equals("")) {
+            Toast.makeText(mainpageActivity, "搜索内容不能为空", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = null;
+            intent = new Intent(mainpageActivity, SearchpageActivity.class);
+            intent.putExtra("name",search.getText().toString());
+            startActivity(intent);
+        }
     }
     @Override
     public void toCookbookdetail(){
-        Intent intent=null;
-        intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
-        startActivity(intent);
+//        Intent intent=null;
+//        intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
+//        startActivity(intent);
+    }
+
+    @Override
+    public void sync(){
+        loadmainData();
+    }
+
+    private void loadData() {
+        BmobQuery<Cookbook> bmobQuery = new BmobQuery<Cookbook>();
+        bmobQuery.include("user");
+        bmobQuery.findObjects(new FindListener<Cookbook>() {
+            @Override
+            public void done(List<Cookbook> list, BmobException e) {
+                if (e == null) {
+                    int n = list.size();
+                    System.out.println(n);
+                    mStrings.clear();
+                    for (int i = 0; i < n; i++) {
+                        Cookbook cookbook = list.get(i);
+                        mStrings.add(cookbook.getCb_name());
+                    }
+                    System.out.println("mString"+mStrings.size());
+                }
+                else {
+                    System.out.println(e.getErrorCode());
+                }
+            }
+        });
+    }
+    private void loadmainData() {
+        BmobQuery<Cookbook> bmobQuery = new BmobQuery<Cookbook>();
+        bmobQuery.include("user");
+        bmobQuery.findObjects(new FindListener<Cookbook>() {
+            @Override
+            public void done(List<Cookbook> list, BmobException e) {
+                if (e == null) {
+                    int n = list.size();
+                    System.out.println(n);
+                    cookbookList.clear();
+                    for (int i = 0; i < n; i++) {
+                        Cookbook cookbook = list.get(i);
+                        cookbookList.add(cookbook);
+                    }
+                    ImageView cover1=(ImageView)view.findViewById(R.id.recdish1cover);
+                    TextView dishname1=(TextView)view.findViewById(R.id.recdish1name);
+                    TextView username1=(TextView)view.findViewById(R.id.recdish1username);
+                    ImageView cover2=(ImageView)view.findViewById(R.id.recdish2cover);
+                    TextView dishname2=(TextView)view.findViewById(R.id.recdish2name);
+                    TextView username2=(TextView)view.findViewById(R.id.recdish2username);
+                    ImageView cover3=(ImageView)view.findViewById(R.id.recdish3cover);
+                    TextView dishname3=(TextView)view.findViewById(R.id.recdish3name);
+                    TextView username3=(TextView)view.findViewById(R.id.recdish3username);
+                    ImageView cover4=(ImageView)view.findViewById(R.id.recdish4cover);
+                    TextView dishname4=(TextView)view.findViewById(R.id.recdish4name);
+                    TextView username4=(TextView)view.findViewById(R.id.recdish4username);
+                    Random random = new Random();
+
+                    int a1= random.nextInt(n-1)%(n) + 0;
+                    int a2= random.nextInt(n-1)%(n) + 0;
+                    while(a2 == a1){
+                        a2= random.nextInt(n-1)%(n) + 0;
+                    }
+                    int a3= random.nextInt(n-1)%(n) + 0;
+                    while(a3==a1||a3==a2){
+                        a3= random.nextInt(n-1)%(n) + 0;
+                    }
+                    int a4= random.nextInt(n-1)%(n) + 0;
+                    while(a4==a1||a4==a2||a4==a3){
+                        a4= random.nextInt(n-1)%(n) + 0;
+                    }
+                    GetImageByUrl getImageByUrl1 = new GetImageByUrl();
+                    getImageByUrl1.setImage(cover1,cookbookList.get(a1).getCb_image().getFileUrl());
+                    GetImageByUrl getImageByUrl2 = new GetImageByUrl();
+                    getImageByUrl2.setImage(cover2,cookbookList.get(a2).getCb_image().getFileUrl());
+                    GetImageByUrl getImageByUrl3 = new GetImageByUrl();
+                    getImageByUrl3.setImage(cover3,cookbookList.get(a3).getCb_image().getFileUrl());
+                    GetImageByUrl getImageByUrl4 = new GetImageByUrl();
+                    getImageByUrl4.setImage(cover4,cookbookList.get(a4).getCb_image().getFileUrl());
+                    dishname1.setText(cookbookList.get(a1).getCb_name());
+                    dishname2.setText(cookbookList.get(a2).getCb_name());
+                    dishname3.setText(cookbookList.get(a3).getCb_name());
+                    dishname4.setText(cookbookList.get(a4).getCb_name());
+                    username1.setText(cookbookList.get(a1).getUser().getUser_nickname());
+                    username2.setText(cookbookList.get(a2).getUser().getUser_nickname());
+                    username3.setText(cookbookList.get(a3).getUser().getUser_nickname());
+                    username4.setText(cookbookList.get(a4).getUser().getUser_nickname());
+                    final int b1=a1;
+                    final int b2=a2;
+                    final int b3=a3;
+                    final int b4=a4;
+                    view.findViewById(R.id.recdish1).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
+                            Log.i("BOMB", cookbookList.get(b1).getObjectId());
+                            intent.putExtra("cookbook_id",cookbookList.get(b1).getObjectId());
+                            startActivity(intent);
+                        }
+                    });
+                    view.findViewById(R.id.recdish2).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
+                            Log.i("BOMB", cookbookList.get(b2).getObjectId());
+                            intent.putExtra("cookbook_id",cookbookList.get(b2).getObjectId());
+                            startActivity(intent);
+                        }
+                    });
+                    view.findViewById(R.id.recdish3).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
+                            Log.i("BOMB", cookbookList.get(b3).getObjectId());
+                            intent.putExtra("cookbook_id",cookbookList.get(b3).getObjectId());
+                            startActivity(intent);
+                        }
+                    });
+                    view.findViewById(R.id.recdish4).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent=new Intent(mainpageActivity,CookbookdetailpageActivity.class);
+                            Log.i("BOMB", cookbookList.get(b4).getObjectId());
+                            intent.putExtra("cookbook_id",cookbookList.get(b4).getObjectId());
+                            startActivity(intent);
+                        }
+                    });
+                }
+                else {
+                    System.out.println(e.getErrorCode());
+                }
+            }
+        });
     }
 }
 

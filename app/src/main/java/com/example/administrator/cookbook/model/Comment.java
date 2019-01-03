@@ -3,9 +3,9 @@ package com.example.administrator.cookbook.model;
 import cn.bmob.v3.BmobObject;
 
 public class Comment extends BmobObject {
-    Cookbook cookbook;
-    User author;
-    String cm_content;
+    private Cookbook cookbook;
+    private User author;
+    private String cm_content;
 
     public Cookbook getCookbook() {
         return cookbook;

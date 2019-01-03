@@ -24,6 +24,9 @@ public class CookbookdetailpageController implements View.OnClickListener {
             case R.id.favor:
                 listener.favorite();
                 break;
+            case R.id.publish:
+                listener.addcomment();
+                break;
         }
     }
 }

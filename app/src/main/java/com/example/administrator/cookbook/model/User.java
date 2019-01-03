@@ -5,21 +5,21 @@ import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobRelation;
 
 public class User extends BmobUser {
-    Occasion user_occasion;
-    Cuisine user_cuision;
-    BmobRelation browse;
-    String user_place;
-    BmobFile user_image;
-    String user_nickname;
-    Taste user_taste;
-    BmobRelation likes;
+    private Occasion user_occasion;
+    private Cuisine user_cuisine;
+    private BmobRelation browse;
+    private String user_place;
+    private BmobFile user_image;
+    private String user_nickname;
+    private Taste user_taste;
+    private BmobRelation likes;
 
     public Occasion getUser_occasion() {
         return user_occasion;
     }
 
     public Cuisine getUser_cuision() {
-        return user_cuision;
+        return user_cuisine;
     }
 
     public BmobRelation getBrowse() {
@@ -71,7 +71,7 @@ public class User extends BmobUser {
     }
 
     public void setUser_cuision(Cuisine user_cuision) {
-        this.user_cuision = user_cuision;
+        this.user_cuisine = user_cuision;
     }
 
     public void setLikes(BmobRelation likes) {

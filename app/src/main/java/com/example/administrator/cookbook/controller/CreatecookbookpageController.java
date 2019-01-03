@@ -30,6 +30,12 @@ public class CreatecookbookpageController implements View.OnClickListener {
             case R.id.delete_step:
                 listener.delSItem();
                 break;
+            case R.id.cover:
+                listener.addcover();
+                break;
+            case R.id.create_cookbook:
+                listener.create();
+                break;
         }
     }
 }

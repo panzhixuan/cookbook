@@ -42,6 +42,7 @@
         <activity android:name=".activity.CollectpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.BrowserpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".activity.TypesearchpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".activity.CommentpageActivity" android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

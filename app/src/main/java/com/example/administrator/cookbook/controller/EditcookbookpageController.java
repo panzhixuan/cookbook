@@ -20,7 +20,7 @@ public class EditcookbookpageController implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
+        public void onClick(View v) {
         switch (v.getId()){
             case R.id.material_add:
                 listener.addMItem();
@@ -30,6 +30,12 @@ public class EditcookbookpageController implements View.OnClickListener{
                 break;
             case R.id.delete_step:
                 listener.delSItem();
+                break;
+            case R.id.cover:
+                listener.editcover();
+                break;
+            case R.id.create_cookbook:
+                listener.create();
                 break;
         }
     }

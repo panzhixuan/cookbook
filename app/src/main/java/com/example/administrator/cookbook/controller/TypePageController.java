@@ -5,7 +5,7 @@ import android.view.View;
 import com.example.administrator.cookbook.R;
 import com.example.administrator.cookbook.activity.TypePageControllerListener;
 
-public class TypePageController implements android.view.View.OnClickListener {
+    public class TypePageController implements android.view.View.OnClickListener {
     private View View;
     private TypePageControllerListener listener;
 
@@ -24,11 +24,6 @@ public class TypePageController implements android.view.View.OnClickListener {
         switch (v.getId()){
             case R.id.confirm:
                 listener.submit();
-                break;
-            case R.id.reset:
-                break;
-            case R.id.handin:
-//                listener.submit();
                 break;
         }
     }

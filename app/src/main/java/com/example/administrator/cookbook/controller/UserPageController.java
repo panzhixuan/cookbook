@@ -20,12 +20,7 @@ public class UserPageController implements android.view.View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.headshot:
-                break;
-            case R.id.confirm3:
-                break;
-            case R.id.confirm2:
-                break;
-            case R.id.confirm1:
+                listener.changheadslot();
                 break;
             case R.id.my_view:
                 listener.toBrowserpage();
@@ -38,6 +33,18 @@ public class UserPageController implements android.view.View.OnClickListener {
                 break;
             case R.id.logout:
                 listener.logout();
+                break;
+            case R.id.edit:
+                listener.edit();
+                break;
+            case R.id.caishi:
+                listener.caishi();
+                break;
+            case R.id.caixi:
+                listener.caixi();
+                break;
+            case R.id.changhe:
+                listener.changhe();
                 break;
         }
     }

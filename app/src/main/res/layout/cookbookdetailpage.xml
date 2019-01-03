@@ -15,8 +15,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/cookbookname"
                     android:layout_width="0dp"
@@ -45,12 +44,14 @@
                         android:textColor="#B35513"
                         android:textSize="15dp"/>
                 </LinearLayout>
-                <ImageView
+                <Button
+                    android:background="@drawable/caishi_shape"
                     android:id="@+id/favor"
+                    android:text="添加收藏"
                     android:layout_width="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.5"
                     android:layout_height="30dp"
-                    android:src="@drawable/favor"/>
+                    android:layout_gravity="center"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,6 +67,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"/>
                 <TextView
+                    android:id="@+id/caishi"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -74,6 +76,7 @@
                     android:textSize="18dp"
                     android:layout_gravity="center"/>
                 <TextView
+                    android:id="@+id/caixi"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -82,6 +85,7 @@
                     android:textSize="18dp"
                     android:layout_gravity="center"/>
                 <TextView
+                    android:id="@+id/changhe"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -106,10 +110,13 @@
                     android:layout_gravity="center"/>
                 <ImageView
                     android:id="@+id/cover"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/hotchicken"
-                    android:scaleType="fitCenter" />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="150dp"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="50dp"
+                    android:src="@drawable/uploadpic"
+                    android:scaleType="centerCrop" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -149,17 +156,12 @@
                     android:textColor="@android:color/black"
                     android:textSize="18dp"
                     android:layout_gravity="top" />
-                <TextView
-                    android:id="@+id/cailiao"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_height="wrap_content"
-                    android:text="三黄鸡：100g
-辣椒：100g"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
-                    android:layout_marginTop="5dp"/>
-            </LinearLayout>>
+                <LinearLayout
+                    android:id="@+id/material_list"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,16 +176,11 @@
                     android:textColor="@android:color/black"
                     android:textSize="18dp"
                     android:layout_gravity="top" />
-                <TextView
-                    android:id="@+id/zuofa"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_height="wrap_content"
-                    android:text="1.将鸡肉洗净，去头去爪，剁成2cm左右的小块。加入料酒，盐，生抽，生粉腌制20min,这里盐要加够味。
-2.将干辣椒干红辣椒切碎些；花椒一汤匙备用；蒜切片，姜切丝。"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
-                    android:layout_marginTop="5dp"/>
+                <LinearLayout
+                    android:id="@+id/step_list"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,6 +206,39 @@
                     android:textSize="16dp"
                     android:layout_marginTop="5dp"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/transparent2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="评论："
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp"
+                        android:layout_gravity="top"/>
+                </LinearLayout>
+                <com.example.administrator.cookbook.view.MyListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/listview">
+                </com.example.administrator.cookbook.view.MyListView>
+                <Button
+                    android:id="@+id/publish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/caixi_shape"
+                    android:layout_marginTop="5dp"
+                    android:text="添加评论" />
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

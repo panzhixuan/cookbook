@@ -3,7 +3,7 @@ package com.example.administrator.cookbook.model;
 import cn.bmob.v3.BmobObject;
 
 public class Occasion extends BmobObject {
-    String name;
+    private String name;
 
     public String getName() {
         return name;

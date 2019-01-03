@@ -24,6 +24,9 @@ public class RegisterpageController implements View.OnClickListener {
             case R.id.handin:
                 listener.submit();
                 break;
+            case R.id.userheader:
+                listener.selectheader();
+                break;
         }
     }
 }

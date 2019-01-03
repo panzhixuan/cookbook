@@ -25,7 +25,7 @@ public class MainpageController implements View.OnClickListener {
                 listener.toTypeActivity("川菜");
                 break;
             case R.id.type2:
-                listener.toTypeActivity("淮扬");
+                listener.toTypeActivity("淮扬菜");
                 break;
             case R.id.type3:
                 listener.toTypeActivity("徽菜");
@@ -59,6 +59,9 @@ public class MainpageController implements View.OnClickListener {
                 break;
             case R.id.recdish4:
                 listener.toCookbookdetail();
+                break;
+            case R.id.sync:
+                listener.sync();
                 break;
         }
     }
